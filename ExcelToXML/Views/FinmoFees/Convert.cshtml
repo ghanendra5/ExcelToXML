@@ -1,0 +1,28 @@
+﻿@model ExcelToXML.Models.ConvertViewModel
+
+@{
+    ViewData["Title"] = "Convert";
+}
+
+<h1>Convert</h1>
+
+@using (Html.BeginForm("Convert", "FinmoFees", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label for="FileName">File Name</label>
+        <input type="text" id="FileName" name="FileName" class="form-control" />
+        <div style="margin-bottom: 5px;">
+        @Html.ValidationMessageFor(m => m.FileName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="File">File</label>
+        <input type="file" id="File" name="file" class="form-control-file" />
+        <div style="margin-bottom: 5px;">
+            @Html.ValidationMessageFor(m => m.FileName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Convert</button>
+}
